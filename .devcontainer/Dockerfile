@@ -1,7 +1,7 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.148.1/containers/ubuntu/.devcontainer/base.Dockerfile
 
 # [Choice] Ubuntu version: bionic, focal
-FROM ubuntu-python
+FROM raychorn/ubuntu_python38:latest
 
 # https://vitux.com/how-to-install-and-configure-mysql-in-ubuntu-18-04-lts/
 
