@@ -13,6 +13,12 @@ Write about 1-2 paragraphs describing the purpose of your project.
 
 ## Getting Started <a name = "getting_started"></a>
 
+mysql -u root
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your-new-password-goes-here';
+
+mysql -u root -p
+
+
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
 ### Prerequisites

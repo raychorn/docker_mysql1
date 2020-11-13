@@ -16,7 +16,8 @@
 	"appPort": [
 		8080,
 		8088,
-		9000
+		9000,
+		3306
 	],
 	"mounts": [
 		"source=/mnt/c,target=/mnt/c,type=bind,consistency=cached"
