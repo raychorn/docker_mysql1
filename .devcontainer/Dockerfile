@@ -53,3 +53,4 @@ RUN apt install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev
 RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && \
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
+RUN apt-get install strace -y
