@@ -14,5 +14,6 @@
             "database": "mysql",
             "username": "root"
         }
-    ]
+    ],
+    "DockerRun.DisableAutoGenerateConfig": true
 }
