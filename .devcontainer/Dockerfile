@@ -1,14 +1,16 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.148.1/containers/ubuntu/.devcontainer/base.Dockerfile
 
 # [Choice] Ubuntu version: bionic, focal
-FROM raychorn/ubuntu_python38:latest
+#FROM raychorn/ubuntu_python38:latest
+FROM raychorn/ubuntu_python_mysql:latest
 
 # https://vitux.com/how-to-install-and-configure-mysql-in-ubuntu-18-04-lts/
 
 RUN apt-get update -y && \
     apt-get upgrade -y && \
-    export DEBIAN_FRONTEND=noninteractive && \
-    apt-get update -y && apt-get install -y -q --no-install-recommends \
+    export DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update -y && apt-get install -y -q --no-install-recommends \
     apt-transport-https \
     build-essential \
     ca-certificates \
@@ -19,10 +21,12 @@ RUN apt-get update -y && \
     nano \
     htop \
     libssl-dev \
-    wget && \
-    apt-get -y install --no-install-recommends mysql-server
+    wget
 
-RUN apt update -y && \
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    export TZ=US/Mountain && \
+    ln -s /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
+    apt update -y && \
     apt-get upgrade -y && \
     apt install make libghc-zlib-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip -y --fix-missing && \
     cd /tmp && \
@@ -45,3 +49,7 @@ RUN apt install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev
     NPROC=$(nproc) && \
     make -j $NPROC && \
     make altinstall
+
+RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && \
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+

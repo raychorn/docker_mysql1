@@ -14,9 +14,9 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [],
 	"appPort": [
-		8080,
-		8088,
-		9000,
+		9080,
+		9088,
+		9090,
 		3306
 	],
 	"mounts": [

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && \
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
 if [ -f "/usr/bin/python" ]; then unlink /usr/bin/python; fi
 ln -s /usr/local/bin/python3.8 /usr/bin/python
 if [ -f "/usr/bin/pip" ]; then unlink /usr/bin/pip; fi
